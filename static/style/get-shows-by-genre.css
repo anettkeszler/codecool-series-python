@@ -1,0 +1,24 @@
+.genre {
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 380px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+
+}
+
+.genre-background {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.odd {
+    background-color: lightgreen;
+}
+
+.even {
+    background-color: lightblue;
+}

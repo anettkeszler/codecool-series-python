@@ -38,10 +38,10 @@ def get_connection_data(db_name=None):
         db_name = os.environ.get('MY_PSQL_DBNAME')
 
     return {
-        'dbname': db_name,
-        'user': os.environ.get('MY_PSQL_USER'),
-        'host': os.environ.get('MY_PSQL_HOST'),
-        'password': os.environ.get('MY_PSQL_PASSWORD')
+        'dbname': 'codecool_series',
+        'user': 'AnettKeszler',
+        'host': 'localhost',
+        'password': 'Almafa22'
     }
 
 
