@@ -25,12 +25,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style/form.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/grid.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/utils.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/get-shows-by-genre.css') }}">
-
 
     <!-- page specific styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
-    <script type="text/javascript" src="/static/js/genre.js" defer></script>
+    <script type="text/javascript" src="/static/js/longest_shows_in_a_genre.js" defer></script>
+
 </head>
 
 <body>
@@ -58,23 +57,25 @@
             </p>
         </div>
         <div class="card">
-            <form action='/get-shows-by-genre' method="post">
+            <form>
                 <label>Choose a genre: </label>
-                    <select id="genre-input" name="genre-input">
-                    {% for option in options %}
-                            <option value="{{ option.name }}">{{ option.name }}</option>
+                <select id="genre-input" name="genre-input">
+                    {% for genre in genres %}
+                    <option value="{{ genre.id }}">{{ genre.name }}</option>
                     {% endfor %}
-                    </select>
-                <button type="submit">Submit</button>
-
-
+                </select>
+                <button type="button" onclick="getData()">Search</button>
             </form>
-
         </div>
-        <div class="genre-background card">
-            {% for genre in genres %}
-                <div id="genre-id" class="genre" data-shows="{{ genre.number_of_characters }}">{{ genre.title }} ({{ genre.number_of_characters }})</div>
-            {% endfor %}
+         <div class="card" id="container">
+            <table id="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Seasons</th>
+                    <th>Episodes</th>
+                </tr>
+
+            </table>
         </div>
     </section>
     <footer>
